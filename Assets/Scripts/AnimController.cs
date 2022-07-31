@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlapAnimController : MonoBehaviour
+public class AnimController : MonoBehaviour
 {
 
     private Animator anim;

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8331692484370935741}
   - component: {fileID: 8331692484370935738}
   - component: {fileID: 8331692484370935739}
+  - component: {fileID: 2556978701664202328}
   m_Layer: 0
   m_Name: Bool
   m_TagString: Untagged
@@ -112,3 +113,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!111 &2556978701664202328
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8331692484370935736}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 842835bca9ea4f1448ae637366041ed9, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 842835bca9ea4f1448ae637366041ed9, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
