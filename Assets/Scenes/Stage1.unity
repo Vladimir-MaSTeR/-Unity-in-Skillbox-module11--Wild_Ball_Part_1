@@ -197,7 +197,7 @@ Animation:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137978552}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 842835bca9ea4f1448ae637366041ed9, type: 2}
   m_Animations:
@@ -206,6 +206,20 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &137978559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137978552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 380ed81566448da40989caeb08a6254b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  jumpPower: 3
 --- !u!1 &153314233
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,7 +867,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8331692484370935736, guid: 3f358df8f4a61ef438848bf3ed950c5d, type: 3}
       propertyPath: m_Name
-      value: Bool
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8331692484370935743, guid: 3f358df8f4a61ef438848bf3ed950c5d, type: 3}
       propertyPath: m_RootOrder
@@ -861,7 +875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8331692484370935743, guid: 3f358df8f4a61ef438848bf3ed950c5d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8331692484370935743, guid: 3f358df8f4a61ef438848bf3ed950c5d, type: 3}
       propertyPath: m_LocalPosition.x
