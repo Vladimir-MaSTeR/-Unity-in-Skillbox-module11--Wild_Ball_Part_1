@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
 
@@ -11,41 +11,55 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Range(0, 10)] private float jumpPower = 2.0f;
 
 
-    private Rigidbody playerRigidBody;
-    private Vector3 movement;
-    private Vector3 jump;
+    private CharacterController characterController;
+    private Animator animator;
+
+    private float gravityForce; // гравитация персонажа
+    private Vector3 movement;   // направление движения персонажа
+    
 
 
     // Start is called before the first frame update
     void Awake()
     {
-        playerRigidBody = GetComponent<Rigidbody>();
+        characterController = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
     }
 
 
-    // Update is called once per frame
-    void Update()
-    {
-        float horizontal = Input.GetAxis(GlobalStringsVars.HORIZONTAL_AXIS);
-        float vertical = Input.GetAxis(GlobalStringsVars.VERTICAL_AXIS);
-        float jum = Input.GetAxis(GlobalStringsVars.JUMP_BUTTON);
-
-        movement = new Vector3(horizontal, 0, vertical).normalized;
-        jump = new Vector3(transform.position.x, jum * jumpPower, transform.position.z).normalized;
-       
-    }
-
-    private void FixedUpdate()
+    private void Update()
     {
         MovePlayer();
+        GamingGravity();
     }
 
     private void MovePlayer()
     {
-        if (true)
-        {
 
+        movement = Vector3.zero;
+        movement.x = Input.GetAxis(GlobalStringsVars.HORIZONTAL_AXIS) * speed;
+        movement.z = Input.GetAxis(GlobalStringsVars.VERTICAL_AXIS) * speed;
+
+        movement.y = gravityForce; 
+        characterController.Move(movement * Time.deltaTime); 
+
+    }
+
+    //метод гравитации
+    private void GamingGravity()
+    {
+        if (!characterController.isGrounded)
+        {
+            gravityForce -= 20f * Time.deltaTime;
+        } else
+        {
+            gravityForce = -2f; 
         }
-        playerRigidBody.AddForce(movement * speed);
+
+        // прыжок
+        if (Input.GetKeyDown(KeyCode.Space) && characterController.isGrounded) 
+        {
+            gravityForce = jumpPower;
+        }
     }
 }

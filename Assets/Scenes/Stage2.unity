@@ -130,9 +130,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2556978701664202328, guid: 3f358df8f4a61ef438848bf3ed950c5d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060686317035566294, guid: 3f358df8f4a61ef438848bf3ed950c5d, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060686317035566294, guid: 3f358df8f4a61ef438848bf3ed950c5d, type: 3}
+      propertyPath: jumpPower
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8331692484370935736, guid: 3f358df8f4a61ef438848bf3ed950c5d, type: 3}
       propertyPath: m_Name
-      value: Bool
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8331692484370935743, guid: 3f358df8f4a61ef438848bf3ed950c5d, type: 3}
       propertyPath: m_RootOrder
