@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8331692484370935740}
   - component: {fileID: 8331692484370935741}
   - component: {fileID: 8331692484370935738}
-  - component: {fileID: 2556978701664202328}
   - component: {fileID: 1779400432313591670}
   - component: {fileID: 4060686317035566294}
+  - component: {fileID: 2977166035025515247}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8331692484370935736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.71, z: -3.74}
+  m_LocalPosition: {x: 0, y: 2.77, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,22 +98,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!111 &2556978701664202328
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8331692484370935736}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 842835bca9ea4f1448ae637366041ed9, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 842835bca9ea4f1448ae637366041ed9, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!143 &1779400432313591670
 CharacterController:
   m_ObjectHideFlags: 0
@@ -144,5 +128,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 380ed81566448da40989caeb08a6254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  jumpPower: 2
+  speed: 5
+  jumpPower: 7
+--- !u!95 &2977166035025515247
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8331692484370935736}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d62b193d4fa756d4aa3f5a1c12d5a61e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

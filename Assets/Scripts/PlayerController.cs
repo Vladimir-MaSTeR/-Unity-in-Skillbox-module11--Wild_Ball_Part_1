@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 
 [RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(Animator))]
 public class PlayerController : MonoBehaviour
 {
 
@@ -16,7 +19,6 @@ public class PlayerController : MonoBehaviour
 
     private float gravityForce; // гравитация персонажа
     private Vector3 movement;   // направление движения персонажа
-    
 
 
     // Start is called before the first frame update
@@ -33,6 +35,20 @@ public class PlayerController : MonoBehaviour
         GamingGravity();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("DeathTriger"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        if (other.CompareTag("WallTriger"))
+        {
+            WallController.SetActiveAnimWall(true);
+        }
+
+    }
+
     private void MovePlayer()
     {
 
@@ -40,12 +56,15 @@ public class PlayerController : MonoBehaviour
         movement.x = Input.GetAxis(GlobalStringsVars.HORIZONTAL_AXIS) * speed;
         movement.z = Input.GetAxis(GlobalStringsVars.VERTICAL_AXIS) * speed;
 
-        movement.y = gravityForce; 
-        characterController.Move(movement * Time.deltaTime); 
+        //анимации
+        AnimGo();
+
+        movement.y = gravityForce;
+        characterController.Move(movement * Time.deltaTime);
 
     }
 
-    //метод гравитации
+    //Метод гравитации
     private void GamingGravity()
     {
         if (!characterController.isGrounded)
@@ -60,6 +79,51 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && characterController.isGrounded) 
         {
             gravityForce = jumpPower;
+        }
+    }
+
+    //Метод проигрывания анимации
+    private void AnimGo()
+    {
+        if (Input.GetKey(KeyCode.W))
+        {
+            animator.SetBool("FrontMovGo", true);
+            animator.SetBool("BackMoveGo", false);
+            animator.SetBool("RightMovGo", false);
+            animator.SetBool("LeftMovGo", false);
+
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            animator.SetBool("BackMoveGo", true);
+            animator.SetBool("FrontMovGo", false);
+            animator.SetBool("RightMovGo", false);
+            animator.SetBool("LeftMovGo", false);
+
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            animator.SetBool("RightMovGo", true);
+            animator.SetBool("FrontMovGo", false);
+            animator.SetBool("BackMoveGo", false);
+            animator.SetBool("LeftMovGo", false);
+
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            animator.SetBool("LeftMovGo", true);
+            animator.SetBool("FrontMovGo", false);
+            animator.SetBool("BackMoveGo", false);
+            animator.SetBool("RightMovGo", false);
+
+        }
+        else
+        {
+            animator.SetBool("FrontMovGo", false);
+            animator.SetBool("BackMoveGo", false);
+            animator.SetBool("RightMovGo", false);
+            animator.SetBool("LeftMovGo", false);
+
         }
     }
 }
