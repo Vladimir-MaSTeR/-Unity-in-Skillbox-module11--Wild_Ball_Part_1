@@ -34,4 +34,11 @@ public class PauseController : MonoBehaviour
         pausedPanel.SetActive(false);
         SceneManager.LoadScene(0);
     }
+
+
+    public void NextLevel()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
