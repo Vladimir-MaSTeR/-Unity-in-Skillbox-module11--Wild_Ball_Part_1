@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(Animator))]
@@ -13,6 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Range(0, 10)] private float speed = 2.0f;
     [SerializeField, Range(0, 10)] private float jumpPower = 2.0f;
 
+    
+    
 
     private CharacterController characterController;
     private Animator animator;
@@ -27,7 +28,6 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
     }
-
 
     private void Update()
     {
@@ -126,4 +126,6 @@ public class PlayerController : MonoBehaviour
 
         }
     }
+
+
 }
