@@ -12,8 +12,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Range(0, 10)] private float speed = 2.0f;
     [SerializeField, Range(0, 10)] private float jumpPower = 2.0f;
 
-    
-    
 
     private CharacterController characterController;
     private Animator animator;
